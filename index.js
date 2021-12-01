@@ -6,12 +6,26 @@ const initialState = {
     divVisible: "no"
 }
 
+const BUTTON_CLICKED = "BUTTON_CLICKED";
+const DIV_VISIBLE = "DIV_VISIBLE";
+
+const buttonClickedAction = () => {
+    return {
+        type: BUTTON_CLICKED
+    }
+}
+const divVisibleAction = () =>  {
+    return {
+        type: DIV_VISIBLE
+    }
+}
+
 function rootReducer(state = initialState, action){
     console.log(action)
     switch(action.type){
-        case "BUTTON_CLICKED":
+        case BUTTON_CLICKED:
             return {...state, buttonClicked : "yes"};
-        case "DIV_VISIBLE":
+        case DIV_VISIBLE:
             return {...state, divVisible : "yes"};
         default:
             return state;
@@ -22,13 +36,6 @@ const store = createStore(rootReducer);
 
 const button = document.getElementById("root-button");
 button.addEventListener("click", function() {
-    alert('Hi');
-    const buttonClickedAction = {
-        type: "BUTTON_CLICKED"
-    }
-    const divVisibleAction = {
-        type: 'DIV_VISIBLE'
-    }
     store.dispatch(buttonClickedAction);
     store.dispatch(divVisibleAction);
 });
