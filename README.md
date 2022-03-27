@@ -1,2 +1,2 @@
 # ReduxVanillaJS
-trying out Redux with pain vanilla JavaScript
+trying out Redux with plain vanilla JavaScript
